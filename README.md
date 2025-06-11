@@ -39,7 +39,7 @@ vim ~/.zshrc或vim ~/.bashrc
 # 在文件中添加别名
 alias rfb='脚本目录/rfb.sh'
 
-# 加载环境变量
+# 重新加载环境变量
 source ~/.zshrc或source ~/.bashrc
 ```
 
