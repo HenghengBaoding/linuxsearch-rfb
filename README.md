@@ -1,5 +1,5 @@
 # rfb
-1.组合rg fzf bat三种工具制作的linux系统搜索文件脚本
+1.组合rg fzf bat三种工具制作的linux系统搜索脚本，支持目录名、文件名、文件内容搜索
 
 2.提前安装好rg fzf bat三种工具
 
