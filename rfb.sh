@@ -20,6 +20,10 @@ read_input() {
             echo
             return 130
         fi
+        # Tab键，直接忽略
+        if [[ $char == $'\t' ]]; then
+            continue
+        fi
         # 回车结束输入
         if [[ $char == "" ]]; then
             echo
@@ -60,14 +64,14 @@ while true; do
     while true; do
       echo -e "\n\033[1;36m *********************\033[0m"
       echo -e "\n\033[1;33m 2.请输入要搜索的目录：\033[0m"
-      echo -e "\033[2m (可输入多个目录，用空格隔开，留空默认$HOME，[ESC]返回上一级)\033[0m"
+      echo -e "\033[2m (可输入多个目录，用空格隔开，留空默认当前路径，[ESC]返回上一级)\033[0m"
       read_input " >>> "
       # 1. 按ESC返回搜索类型输入页面
       if [[ $? -eq 130 ]]; then
           break  # 跳出内容输入循环，回到搜索类型输入
       fi
       dirs="$REPLY"
-      [[ -z $dirs ]] && dirs="$HOME"
+      [[ -z $dirs ]] && dirs="$(pwd)"
 
       # 搜索内容输入循环
       while true; do
@@ -130,6 +134,7 @@ while true; do
                   echo -e "\033[1;31m 未找到匹配的内容。\033[0m"
                   continue
               fi
+              
               selected=$(echo "$result" | \
                   fzf --ansi --prompt="[↑][↓]可以选择文件并查看具体内容: " \
                       --header="[ESC]返回上一级 | [enter]退出并输出文件内容" \
