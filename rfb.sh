@@ -1,4 +1,5 @@
 #!/bin/bash
+#############
 
 # 依赖检查
 for cmd in rg fzf bat; do
