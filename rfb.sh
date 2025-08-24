@@ -21,7 +21,7 @@ read_input() {
   else
     printf "%b" "$prompt"
   fi
-  ####################
+
   # 记录当前光标位置（用于后续回显）
   local save_cursor=$'\033[s'
   local restore_cursor=$'\033[u'
