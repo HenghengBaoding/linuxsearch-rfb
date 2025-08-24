@@ -7,6 +7,8 @@ for cmd in rg fzf bat; do
         exit 1
     fi
 done
+for
+done
 
 # 支持ESC直接返回上一层的输入函数，支持退格删除
 read_input() {
